@@ -17,8 +17,8 @@ public class PlayFabLogin : MonoBehaviour
             PlayFabSettings.TitleId = "8140"; 
         }
         // T‰ss‰ luodaan API-kutsu (GET)
-        var request = new LoginWithEmailAddressRequest{ Email = userEmailLogin, Password = userPasswordLogin };
-        PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, 
+        var request = new LoginWithEmailAddressRequest { Email = userEmailLogin, Password = userPasswordLogin };
+        PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess,
             OnLoginFailure);
     }
     
@@ -51,7 +51,9 @@ public class PlayFabLogin : MonoBehaviour
     // Login -painikkeen koodi eli t‰ss‰t tehd‰‰n API-kutsu Playfab pilveen ja selvitet‰‰n onko k‰ytt‰j‰ olemassa
     public void LogIn()
     {
-        var request = new LoginWithEmailAddressRequest { Email = userPasswordLogin, Password = userPasswordLogin };
+        var request = new LoginWithEmailAddressRequest { Email = userEmailLogin, Password = userPasswordLogin };
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnLoginFailure);
+
+        Debug.Log(userEmailLogin);
     }
 }
